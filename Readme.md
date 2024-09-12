@@ -34,7 +34,7 @@
 
 ## How to Implement
 
-- Simply clone or download the repository, then open the `index.html` file in any modern web browser.
+- Simply clone or download the repository, then open the `index.php` file in any modern web browser.
 - There is no need for any external installations; all required libraries like TailwindCSS, CodeMirror, and JSZip are imported via CDNs.
 
 ## Libraries and Technologies
