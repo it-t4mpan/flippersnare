@@ -1,7 +1,7 @@
 
 ![Screenshot 2024-09-12 at 13 35 07](https://github.com/user-attachments/assets/4448a7ff-ec49-46fa-ba39-2b7f0268e35d)
 
-# FlipperSnare by XsanLahci
+# FlipperSnare
 
 ## Overview
 
