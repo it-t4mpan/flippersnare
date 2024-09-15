@@ -47,3 +47,6 @@
 
 Contributions are welcome! Feel free to fork this repository and submit pull requests for enhancements or bug fixes.
 
+## Disclaimer
+
+This project is created for educational purposes only. The author does not condone or encourage any illegal activity, and takes no responsibility for any actions that result from the use of this script. Use it responsibly and only for lawful purposes.
