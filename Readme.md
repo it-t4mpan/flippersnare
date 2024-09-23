@@ -1,5 +1,6 @@
 
-![Screenshot 2024-09-12 at 13 35 07](https://github.com/user-attachments/assets/4448a7ff-ec49-46fa-ba39-2b7f0268e35d)
+<img width="833" alt="Screenshot 2024-09-23 at 14 55 33" src="https://github.com/user-attachments/assets/cbc2770a-9727-4566-ac6c-4696eb56f7c8">
+
 
 # FlipperSnare
 
@@ -16,6 +17,11 @@
 - **HTML Validation**: Validate your HTML structure in real-time and receive error feedback if the code contains issues.
 - **Download HTML**: Save the inputted code as an HTML file for future use with just one click.
 - **LocalStorage Support**: Automatically save your code locally in the browser, allowing you to continue your work later.
+
+## NEW Features
+- **Reset Button for HTML Input**: A reset button is provided to clear the input from the HTML editor and reset the live preview.
+- **Image to Base64 Encoder**: Users can upload an image, convert it to Base64 encoding, and copy the Base64 string for further use.
+- **Reset Button for Base64 Encoder**: A reset button is provided to clear the uploaded image and the Base64 encoded output.
 
 ## Usage
 
