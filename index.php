@@ -33,7 +33,7 @@
 
     <!-- Toggle Dark Mode Button -->
     <div class="text-right mb-4">
-        <button onclick="toggleDarkMode()" class="bg-gray-800 text-white p-2 rounded">Dark Mode</button>
+        <button id="darkModeToggle" class="bg-gray-800 text-white p-2 rounded">Dark Mode</button>
     </div>
 
     <div class="container mx-auto">
@@ -45,9 +45,14 @@
             <div class="border-r-0 md:border-r-2 pr-0 md:pr-6">
                 <h2 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-300">Source HTML</h2>
                 <textarea id="source" rows="15" class="w-full p-3 text-sm border rounded-md focus:ring-2 focus:ring-blue-500"></textarea>
-                <button onclick="updatePreview()" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
-                    Submit
-                </button>
+                <div class="mt-4">
+                    <button onclick="updatePreview()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+                        Submit
+                    </button>
+                    <button onclick="resetInputs()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow">
+                        Reset
+                    </button>
+                </div>
             </div>
 
             <!-- Right side: Live preview with resizable options -->
@@ -63,17 +68,30 @@
                     <label for="height-slider" class="block text-gray-700 dark:text-gray-300 font-semibold">Height: <span id="height-value">400px</span></label>
                     <input type="range" id="height-slider" min="300" max="1000" value="400" class="w-full" oninput="adjustPreview()">
                 </div>
+
                 <!-- Download button for saving the HTML content -->
-        <div class="text-center mt-8">
-            <button onclick="downloadCode()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded shadow">
-                Download HTML
-            </button>
-        </div>
+                <div class="text-center mt-8">
+                    <button onclick="downloadCode()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded shadow">
+                        Download HTML
+                    </button>
+                </div>
             </div>
-
         </div>
 
-        
+        <!-- Image to Base64 Converter -->
+        <div class="mt-8 p-6 bg-white dark:bg-gray-800 shadow-lg rounded-lg">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700 dark:text-gray-300">Image to Base64 Encoder</h2>
+            <input type="file" id="imageInput" class="mb-4" accept="image/*">
+            <textarea id="base64Output" rows="6" class="w-full p-3 text-sm border rounded-md" readonly></textarea>
+            <div class="mt-4">
+                <button onclick="copyBase64()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+                    Copy Base64
+                </button>
+                <button onclick="resetBase64()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow">
+                    Reset
+                </button>
+            </div>
+        </div>
 
         <!-- Validation results -->
         <div class="mt-8 p-4 bg-red-100 dark:bg-red-800 rounded-lg text-red-700 dark:text-red-300 hidden" id="validation-result">
@@ -120,21 +138,38 @@
             document.getElementById('height-value').innerText = height + 'px';
         }
 
-        // Toggle dark mode
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
+        function resetInputs() {
+            editor.setValue('');
+            document.getElementById('preview').src = '';
         }
 
-        // Auto-save to localStorage
-        editor.on('change', () => {
-            localStorage.setItem('userCode', editor.getValue());
+        // Image to Base64 encoding
+        document.getElementById('imageInput').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onloadend = function() {
+                    document.getElementById('base64Output').value = reader.result;
+                };
+                reader.readAsDataURL(file);
+            }
         });
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedCode = localStorage.getItem('userCode');
-            if (savedCode) {
-                editor.setValue(savedCode);
-            }
+        function copyBase64() {
+            const base64Output = document.getElementById('base64Output');
+            base64Output.select();
+            document.execCommand('copy');
+            alert('Base64 copied to clipboard');
+        }
+
+        function resetBase64() {
+            document.getElementById('base64Output').value = '';
+            document.getElementById('imageInput').value = '';
+        }
+
+        // Toggle dark mode
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.documentElement.classList.toggle('dark');
         });
 
         // Validate HTML structure
